@@ -51,8 +51,6 @@ export default function Connections() {
     const nonconnection = response.data.detail;
     
     setNonConnection(nonconnection);
-
-    console.log(nonConnection)
   };
 
 

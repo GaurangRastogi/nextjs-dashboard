@@ -13,7 +13,7 @@ export async function POST(request:NextRequest){
         const reqBody=await request.json();
 
         const{email,password}=reqBody;
-        console.log(reqBody);
+        
 
 
         //check if user exists

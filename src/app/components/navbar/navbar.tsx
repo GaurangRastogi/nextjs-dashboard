@@ -6,7 +6,7 @@ import { FaRegBell, FaUser, FaAngleDown } from "react-icons/fa";
 export default function Navbar({user,profile}:any) {
 
   useEffect(()=>{
-    console.log(profile)
+    // console.log(profile)
   },[profile]);
 
   return (

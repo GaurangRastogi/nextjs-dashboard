@@ -10,7 +10,6 @@ export async function POST(request:NextRequest) {
  
     try{
         const req=await request.json();
-        console.log("hello",req);
         const ids=req.ids;
         
         let ans=[];
