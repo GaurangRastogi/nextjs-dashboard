@@ -1,13 +1,17 @@
 "use client";
 import axios from "axios";
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/navbar/navbar";
 import Left from "../components/left/left";
-import { FaUser} from "react-icons/fa";
+import { FaRegWindowClose, FaUser} from "react-icons/fa";
 
 export default function Connections() {
   const router = useRouter();
+
+  const [connection,setConnection]=useState([]);
+  const [nonConnection,setNonConnection]=useState([]);
+
   const logout = async () => {
     try {
       await axios.get("/api/logout");
@@ -17,10 +21,54 @@ export default function Connections() {
     }
   };
 
+
+
+
+  const getConnection=async()=>{
+
+    try{
+      const friends=await axios.get('/api/getconnection');
+      
+
+      const ids={ids:friends.data.connection};
+
+      const response=await axios.post('/api/getdetailsofuser',ids);
+
+      
+      const connection=response.data.detail;
+      
+      setConnection(connection);
+
+    }
+    catch(error:any){
+      console.log(error.message);
+    }
+  }
+  
+  const getNonConnection=async()=>{
+    const nonfriends=await axios.get('/api/getnonconnection');
+      
+
+    const ids={ids:nonfriends.data.nonConnection};
+
+    const response=await axios.post('/api/getdetailsofuser',ids);
+
+    const nonconnection=response.data.detail;
+    
+    setNonConnection(nonconnection);
+  }
+
+
+  useEffect(()=>{
+    getConnection();
+    getNonConnection();
+    
+  },[]);
+
   return (
     <div className="flex flex-col relative">
       <Navbar />
-      <div className="body flex" style={{ minHeight: "200vh" }}>
+      <div className="body flex" style={{ minHeight: "150vh" }}>
         <div className="left w-1/6">
           <Left />
         </div>
@@ -68,6 +116,7 @@ export default function Connections() {
             </h1>
 
             <div className="m-4 connect flex flex-wrap">
+
               <div className="m-4 p-2 profile flex justify-around items-center  border-4 border-gray-300 rounded-xl">
                 <div className="friend-detail">
                   <h1 className="text-xl font-bold">Gaurang Rastogi</h1>

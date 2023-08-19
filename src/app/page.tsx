@@ -95,7 +95,7 @@ export default function Home() {
   return (
     <div className="flex flex-col relative">
       <Navbar  profile={user.profilePhoto}/>
-      <div className="body flex" style={{ minHeight: "200vh" }}>
+      <div className="body flex" style={{ minHeight: "150vh" }}>
         <div className="left w-1/6">
           <Left />
         </div>

@@ -28,7 +28,14 @@ const userSchema = new mongoose.Schema({
         type:String
     }],
     professionalDetail:{
-        type:String
+        jobType:{//full time internship
+            type:String,
+            default:"Job Type"
+        },
+        job:{ //company name
+            type:String,
+            default:"Job"
+        }
     },
     certification:[
         {
