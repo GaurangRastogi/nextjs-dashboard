@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/navbar/navbar";
 import Left from "../components/left/left";
-import { FaRegWindowClose, FaUser } from "react-icons/fa";
+import {FaUser } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Connections() {
   const router = useRouter();
@@ -135,10 +136,11 @@ export default function Connections() {
                     style={{ background: "rgba(255, 167, 141, 1)" }}
                   >
                     {con.profilePhoto !== "" && con.profilePhoto!==undefined ? (
-                      <img
+                      <Image
                         src={con.profilePhoto}
-                        width="150px"
-                        height="150px"
+                        alt={con.username}
+                        width={150}
+                        height={150}
                         className="border rounded-full"
                       />
                     ) : (
@@ -177,10 +179,11 @@ export default function Connections() {
                     style={{ background: "rgba(255, 167, 141, 1)" }}
                   >
                     {noncon.profilePhoto !=="" && noncon.profilePhoto!==undefined ? (
-                      <img
+                      <Image
                         src={noncon.profilePhoto}
-                        width="150px"
-                        height="150px"
+                        alt={noncon.username}
+                        width={150}
+                        height={150}
                         className="border rounded-full"
                       />
                     ) : (

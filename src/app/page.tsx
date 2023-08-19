@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/navbar";
 import Left from "./components/left/left";
 import { FaUser, FaStar, FaIcons } from "react-icons/fa";
 import { getSignature, upload } from "@/helpers/signature";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -113,7 +114,7 @@ export default function Home() {
                   style={{ background: "rgba(255, 167, 141, 1)" }}
                 >
               {
-                user.profilePhoto!=="" && user.profilePhoto!=undefined?<img src={user.profilePhoto} width="150px" height="150px" className="border rounded-full"/>:<FaUser size="5em" color="#1e2875" />
+                user.profilePhoto!=="" && user.profilePhoto!=undefined?<Image src={user.profilePhoto} alt={user.username} width={150} height={150} className="border rounded-full"/>:<FaUser size="5em" color="#1e2875" />
                 }
                 </div>
                 <input type="file" id="hiddenInput" onChange={handleFileChange} style={{"display":"none"}}/>
@@ -176,7 +177,7 @@ export default function Home() {
                   <p className="text-gray-700 text-justify">
                   Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, 
                   graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century 
-                  who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a 
+                  who is thought to have scrambled parts of Ciceros De Finibus Bonorum et Malorum for use in a 
                   type specimen book. It usually begins with: Lorem ipsum dolor sit amet, consectetur adipiscing 
                   elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>

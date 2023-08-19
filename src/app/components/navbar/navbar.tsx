@@ -2,12 +2,14 @@
 
 import React, { useEffect } from "react";
 import { FaRegBell, FaUser, FaAngleDown } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Navbar({user,profile}:any) {
 
   useEffect(()=>{
-    // console.log(profile)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[profile]);
+  
 
   return (
     <div className="py-4 px-10 flex items-center justify-between">
@@ -23,7 +25,7 @@ export default function Navbar({user,profile}:any) {
             className="m-2 border rounded-lg"
             style={{ background: "rgba(255, 167, 141, 1)" }}
           >
-             {profile!=="" && profile!=undefined?<img src={profile} width="50px" height="50px" className="border rounded-xl"/>:<FaUser size="2em" color="#1e2875" />}
+             {profile!=="" && profile!=undefined?<Image src={profile} alt={user} width={50} height={50} className="border rounded-xl"/>:<FaUser size="2em" color="#1e2875" />}
 
           </div>
 
