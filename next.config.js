@@ -10,6 +10,9 @@ const nextConfig = {
         // !! WARN !!
         ignoreBuildErrors: true,
       },
+      images: {
+        domains: ['res.cloudinary.com'],
+    },
 }
 
 module.exports = nextConfig
