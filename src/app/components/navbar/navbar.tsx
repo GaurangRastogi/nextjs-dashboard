@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { FaRegBell, FaUser, FaAngleDown } from "react-icons/fa";
 
-export default function Navbar({profile}:any) {
+export default function Navbar({user,profile}:any) {
 
   useEffect(()=>{
     console.log(profile)
@@ -23,14 +23,14 @@ export default function Navbar({profile}:any) {
             className="m-2 border rounded-lg"
             style={{ background: "rgba(255, 167, 141, 1)" }}
           >
-             {profile!==""?<img src={profile} width="50px" height="50px" className="border rounded-xl"/>:<FaUser size="2em" color="#1e2875" />}
+             {profile!=="" && profile!=undefined?<img src={profile} width="50px" height="50px" className="border rounded-xl"/>:<FaUser size="2em" color="#1e2875" />}
 
           </div>
 
           <div className="flex flex-col mr-10">
             <p className="text-xl text-indigo-900">Welcome Back</p>
             <p className="text-2xl text-indigo-900 font-medium">
-              Gaurang Rastogi
+              {user}
             </p>
           </div>
           <FaAngleDown size={"1.5em"} color="#1e2875" />

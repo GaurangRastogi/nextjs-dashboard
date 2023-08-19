@@ -11,6 +11,9 @@ export default function Home() {
 
 
   const [user,setUser]=useState({
+    username:"Gaurang",
+    email:"gr@gmail.com",
+    mobile:"8194177570",
     profilePhoto:""
   });
   
@@ -66,7 +69,7 @@ export default function Home() {
     try{
       const response=await axios.get('/api/getuser');
       setUser(response.data.user);
-
+      console.log(user);
     }
     catch(error:any){
       console.log(error.message);
@@ -90,11 +93,12 @@ export default function Home() {
 
   useEffect(()=>{
     getUser();
+    console.log("",user.profilePhoto);
   },[]);
 
   return (
     <div className="flex flex-col relative">
-      <Navbar  profile={user.profilePhoto}/>
+      <Navbar  user={user.username} profile={user.profilePhoto}/>
       <div className="body flex" style={{ minHeight: "150vh" }}>
         <div className="left w-1/6">
           <Left />
@@ -109,7 +113,7 @@ export default function Home() {
                   style={{ background: "rgba(255, 167, 141, 1)" }}
                 >
               {
-                user.profilePhoto!==""?<img src={user.profilePhoto} width="150px" height="150px" className="border rounded-full"/>:<FaUser size="5em" color="#1e2875" />
+                user.profilePhoto!=="" && user.profilePhoto!=undefined?<img src={user.profilePhoto} width="150px" height="150px" className="border rounded-full"/>:<FaUser size="5em" color="#1e2875" />
                 }
                 </div>
                 <input type="file" id="hiddenInput" onChange={handleFileChange} style={{"display":"none"}}/>
@@ -124,7 +128,7 @@ export default function Home() {
                   <h1 className="text-xl text-gray-600 text-bold">Name</h1>
 
                   <div className="details-name flex justify-between items-center">
-                    <h1>Gaurang Rastogi</h1>
+                    <h1>{user.username}</h1>
                     <button className="p-2 px-6 h-10 bg-gray-100 hover:bg-gray-300 text-gray-600 font-bold rounded-2xl">
                       Edit
                     </button>
@@ -136,7 +140,7 @@ export default function Home() {
                   <h1 className="text-xl text-gray-600 text-bold">Email</h1>
 
                   <div className="details-email flex justify-between items-center">
-                    <h1>gaurangrastogi209@gmail.com</h1>
+                    <h1>{user.email}</h1>
                     <button className="p-2 px-6 h-10 bg-gray-100 hover:bg-gray-300 text-gray-600 font-bold rounded-2xl">
                       Edit
                     </button>
@@ -150,7 +154,7 @@ export default function Home() {
                   </h1>
 
                   <div className="details-mobile flex justify-between items-center">
-                    <h1>6393056856</h1>
+                    <h1>{user.mobile}</h1>
                     <button className="p-2 px-6 h-10 bg-gray-100 hover:bg-gray-300 text-gray-600 font-bold rounded-2xl">
                       Edit
                     </button>
@@ -162,7 +166,7 @@ export default function Home() {
                 <div className="px-4 py-2 about-heading flex justify-between">
                   <h1 className="text-black text-2xl font-bold">
                     About
-                    <span className="m-2 text-blue-950">Gaurang</span>
+                    <span className="m-2 text-blue-950">{user.username}</span>
                   </h1>
                   <button className="p-2 px-6 h-10 bg-gray-100 hover:bg-gray-300 text-gray-600 font-bold rounded-2xl">
                     Edit
@@ -170,14 +174,11 @@ export default function Home() {
                 </div>
                 <div className="px-4 py-2">
                   <p className="text-gray-700 text-justify">
-                    Are you stoked about all the cool stuff happening in the
-                    tech world? Are you buzzing with ideas that could reshape
-                    industries and create a better tomorrow? Accenture
-                    Innovation Challenge 2023 needs your brilliance!Were looking
-                    for ideas that use the power of technology to explore new
-                    frontiers, reinvent business and accelerate change. So,
-                    gather your squad and let those creative juices flow! Check
-                    out the fabulous prizes that await the winners:
+                  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, 
+                  graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century 
+                  who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a 
+                  type specimen book. It usually begins with: Lorem ipsum dolor sit amet, consectetur adipiscing 
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                 </div>
               </div>
@@ -314,12 +315,10 @@ export default function Home() {
                     </div>
                     <div className="px-4 py-2">
                       <p className="text-gray-700 text-justify">
-                        Are you stoked about all the cool stuff happening in the
-                        tech world? Are you buzzing with ideas that could
-                        reshape industries and create a better tomorrow?
-                        Accenture Innovation Challenge 2023 needs your
-                        brilliance!Were looking for ideas that use the power of
-                        technology
+                      Lorem ipsum, or lipsum as it is sometimes known, is dummy text 
+                      used in laying out print, graphic or web designs. The passage is 
+                      attributed to an unknown typesetter Lorem ipsum, or lipsum as it 
+                      is sometimes known, is dummy text used in laying out print,
                       </p>
                     </div>
                   </div>

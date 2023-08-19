@@ -16,7 +16,7 @@ export async function POST(request:NextRequest) {
         let ans=[];
 
         for await(const id of ids){
-            const response=await User.findOne({_id:id},'username professionalDetail');
+            const response=await User.findOne({_id:id},'username professionalDetail profilePhoto');
             ans.push(response);
         }
         
